@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WASM SSH</title>
+  <script src="wasm_exec.js"></script>
+  <script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+      go.run(result.instance);
+    });
+  </script>
+</head>
+<body>
+  <details>
+    <summary>
+      Is it possible to use directly your web browser as a ssh client? Check the JavaScript debug console.
+    </summary>
+    No, networking in WASM is sandboxed.
+  </details>
+</body>
+</html>

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ssh:
+    image: linuxserver/openssh-server:version-9.3_p2-r1
+    environment:
+      PASSWORD_ACCESS: "true"
+      USER_NAME: test
+      USER_PASSWORD: test
+    network_mode: host
